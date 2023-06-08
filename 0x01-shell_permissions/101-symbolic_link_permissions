@@ -1,2 +1,2 @@
 #!/bin/bash
-chown vincent:group _hello
+chown -h vincent:group _hello
