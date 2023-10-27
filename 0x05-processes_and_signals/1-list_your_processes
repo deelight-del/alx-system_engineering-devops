@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#command to display the processes in a tree like structure
+ps auxf
