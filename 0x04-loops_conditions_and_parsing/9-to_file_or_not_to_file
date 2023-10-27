@@ -9,7 +9,7 @@ if [ -e "$name" ]; then
 		echo "school file is empty"
 	fi
 	if [ -f "$name" ]; then
-		echo "school file is a regular file"
+		echo "school is a regular file"
 	fi
 else
 	echo "school file does not exist"
