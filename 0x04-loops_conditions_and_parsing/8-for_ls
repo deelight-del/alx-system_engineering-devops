@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Bash script to print contents of a directory without the first hyphen
+for i in *; do
+	echo "${i#*-}"
+done
