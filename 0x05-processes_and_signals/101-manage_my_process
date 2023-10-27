@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#command to echo infinity and beyond
+filename="./manage_my_process"
+file2="/var/run/my_process.pid"
+
+if [[ $1 == "start" ]]; then
+	"$filename" &
+	sudo sh -c 'pgrep "$filename" > "$file2" &'
+	echo "manage_my_process started"
+elif [[ "$1" == "stop" ]]; then
+	pkill "$filename" && sudo sh -c 'rm "$file2"' && echo "manage_my_process stopped"
+elif [[ $1 == "restart" ]]; then
+	pkill "$filename"
+	sudo sh -c 'rm "$file2"'
+	"$filename" &
+	sudo sh -c 'pgrep "$filename" > "$file2"'
+	echo "manage_my_process restarted"
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi
