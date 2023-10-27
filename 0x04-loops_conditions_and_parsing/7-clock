@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Bash script to print goodluck and bad luck from different cultures
+hour=0
+while [ "$hour" -lt 13 ]; do
+	echo "Hour: $hour"
+	for j in {1..59}; do
+		echo "$j"
+	done
+	(( hour++ ))
+done
