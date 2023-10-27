@@ -1,0 +1,15 @@
+<?php
+// This is the end of a PHP file
+// It ends with the closing tag ?>
+// You can omit the closing tag if the file contains only PHP code
+
+// Define a function
+function add($x, $y) {
+	  return $x + $y;
+}
+
+// Call the function and print the result
+$result = add(2, 3);
+echo "The result is $result.";
+?>
+

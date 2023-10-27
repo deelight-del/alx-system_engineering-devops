@@ -1,0 +1,13 @@
+<?php
+// This is the beginning of a PHP file
+// It starts with the opening tag <?php
+// You can write comments with // or /* ... */
+
+// Define some variables
+$name = "John";
+$age = 25;
+
+// Print a greeting message
+echo "Hello, $name. You are $age years old.";
+?>
+
