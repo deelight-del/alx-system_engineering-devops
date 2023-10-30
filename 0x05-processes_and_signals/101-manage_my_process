@@ -8,10 +8,12 @@ if [[ $1 == "start" ]]; then
 	sudo sh -c 'pgrep "$filename" > "$file2" &'
 	echo "manage_my_process started"
 elif [[ "$1" == "stop" ]]; then
-	pkill "$filename" && sudo sh -c 'rm "$file2"' && echo "manage_my_process stopped"
+	pkill "$filename"
+	sudo rm "$file2"
+	echo "manage_my_process stopped"
 elif [[ $1 == "restart" ]]; then
 	pkill "$filename"
-	sudo sh -c 'rm "$file2"'
+	sudo rm "$file2"
 	"$filename" &
 	sudo sh -c 'pgrep "$filename" > "$file2"'
 	echo "manage_my_process restarted"
