@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+# This contains the code for the listening sockets printing names and pid
+netstat -pl
