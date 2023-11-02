@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#This will change the IP address of localhost and facebook.com to specified IP adresses.
+sudo cp /etc/hosts ~/hosts.new
+echo -e '127.0.0.2\tlocalhost' | sudo tee ~/hosts.new > /dev/null
+echo -e '8.8.8.8\tfacebook.com' | sudo tee -a ~/hosts.new > /dev/null
+cat ~/hosts.new | sudo tee /etc/hosts > /dev/null
