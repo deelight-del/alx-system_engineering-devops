@@ -12,7 +12,7 @@ package {'python3.8':
 }
 
 #Install pip and ensrue that the system is update before doing it
-package {'python3-pip3':
+package {'python3-pip':
   ensure  => present,
 }
 
@@ -20,6 +20,6 @@ package {'python3-pip3':
 
 package {'flask':
   ensure   => '2.1.0',
-  require  => Package['python3-pip3'],
+  require  => Package['python3-pip'],
   provider => 'pip',
 }
