@@ -8,7 +8,7 @@ exec {'apt-update':
 
 #Install python 3.8.10
 package {'python3.8':
-  ensure =>  present,
+  ensure =>  '3.8.10',
 }
 
 #Install pip and ensrue that the system is update before doing it
