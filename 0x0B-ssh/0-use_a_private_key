@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # This contains connecting to a ssh key
+cat ~/.ssh/school.pub | ssh ubuntu@34.229.70.28 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ssh -q -i /home/vagrant/.ssh/school ubuntu@34.229.70.28
