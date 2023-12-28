@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This contains connecting to a ssh key
+eval `ssh-agent -s`
+ssh-add ~/.ssh/school
+ssh ubuntu@8.8.8.8
