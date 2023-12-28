@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This contains connecting to a ssh key
+ssh-keygen -b 4096 -f school -P betty
