@@ -1,14 +1,16 @@
 #This file contains a puppet that manages the file_line
-#resource of the ssh client side config file.
+# Include the stdlib module
+include stdlib
 
-mod 'saz-ssh', '11.2.0'
+#Other part of code
+file_line { 'change password auth':
+  ensure =>  present,
+  path =>  '/etc/ssh/ssh_config',
+  line =>  '    PasswordAuthentication no'
+}
 
-class { 'ssh::client':
-  storeconfigs_enabled =>  false,
-  options              => {
-    'Host *' => {
-      'IdentityFile'           => '~/.ssh/school',
-      'PasswordAuthentication' => 'no'
-    }
-  }
+file_line { 'change Identity file':
+  ensure =>  present,
+  path =>  '/etc/ssh/ssh_config',
+  line =>  '    IdentityFile ~/.ssh/school'
 }
