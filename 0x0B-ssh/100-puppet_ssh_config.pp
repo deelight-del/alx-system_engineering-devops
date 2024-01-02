@@ -1,6 +1,6 @@
 #This file contains a puppet that manages the file_line
 # Include the stdlib module
-include stdlib
+require stdlib
 
 #Other part of code
 file_line { 'change password auth':
