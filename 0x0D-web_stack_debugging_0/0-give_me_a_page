@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This is an attempt to solve the debugging issue.
 
-#sudo apt update
-#sudo apt install apache2
-sudo /etc/init.d/apache2 restart
+sudo apt update
+sudo apt install apache2
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
+sudo /etc/init.d/apache2 start
