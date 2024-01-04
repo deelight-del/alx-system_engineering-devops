@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # This is an attempt to solve the debugging issue.
-
-sudo apt update
-sudo apt install apache2
 echo "ServerName localhost" >> /etc/apache2/apache2.conf
-sudo /etc/init.d/apache2 start
+sed -i 's/Listen 8080/Listen 80/' /etc/apache2/ports.conf
+sed -i 's/VirtualHost \*:8080/VirtualHost \*:80/' /etc/apache2/sites-available/000-default.conf
+service apache2 restart
