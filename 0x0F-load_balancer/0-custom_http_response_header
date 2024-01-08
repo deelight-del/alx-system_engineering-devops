@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This contains configuring custom header for nginx
+
+#Installing nginx
+sudo apt update
+sudo apt install -y nginx
+
+#Config. a custom header to default page
+new="location \/ {\n\t\tadd_header X-Served-By \"$HOSTNAME\""
+sudo sed -i "s/location \/ {/$new;/" /etc/nginx/sites-available/default
+
+
+#Restart the nginx service
+sudo service nginx restart
