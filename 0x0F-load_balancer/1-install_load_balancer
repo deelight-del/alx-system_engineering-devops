@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This contains configuring the frontend and backend of a haproxy server
+
+#Installing haproxy
+sudo apt update
+sudo apt -y install haproxy
+
+#Bind the frontend to a listening port
+sudo printf 'frontend my_frontend\n\tbind *:80\n\tdefault_backend my_backend\n\n' | sudo tee --append /etc/haproxy/haproxy.cfg >> /dev/null
+
+#Setting up Backend
+sudo printf 'backend my_backend\n\tserver server1 34.229.70.28:80\n\tserver server2 54.89.45.26:80\n\n' | sudo tee --append /etc/haproxy/haproxy.cfg >> /dev/null
+
+#Restart haproxy
+sudo service haproxy restart
