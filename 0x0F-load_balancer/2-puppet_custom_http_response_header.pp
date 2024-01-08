@@ -16,6 +16,7 @@ file_line {'replace a default':
 
 #Running nginx service
 service {'nginx':
-  ensure  => running,
+  ensure  => true,
+  name    => 'nginx',
   require => Package['nginx']
 }
