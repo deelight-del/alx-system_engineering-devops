@@ -1,8 +1,8 @@
 #Puppeteering and automating adding HTTP header to our respective web servers
 include stdlib
 
-## Installing haproxy
-package {'haproxy':
+## Installing nginx
+package {'nginx':
   ensure => 'installed'
 }
 
@@ -14,8 +14,8 @@ file_line {'default':
   multiple => false,
 }
 
-#Executing haproxy
-exec {'haproxy':
-  command => '/etc/init.d/haproxy restart',
-  require => Package['haproxy']
+#Executing nginx
+exec {'nginx':
+  command => '/etc/init.d/nginx restart',
+  require => Package['nginx']
 }
