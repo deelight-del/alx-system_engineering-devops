@@ -20,3 +20,9 @@ service {'nginx':
   name    => 'nginx',
   require => Package['nginx']
 }
+
+#Restart service
+exec {'nginx':
+  command => '/etc/init.d/nginx restart',
+  require => Service['nginx']
+}
