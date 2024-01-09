@@ -9,7 +9,8 @@ package {'nginx':
 #Replacing content in the lines of the config files
 file_line {'replace a default':
   path     => '/etc/nginx/sites-available/default',
-  line     => "\t\tadd_header X-Served-By \"${facts['networking']['hostname']}\";",
+  # line     => "\t\tadd_header X-Served-By \"${facts['networking']['hostname']}\";",
+  line     => "\t\tadd_header X-Served-By \"$::hostname\";",
   after    => '^\s*location / {',
   multiple => false,
 }
