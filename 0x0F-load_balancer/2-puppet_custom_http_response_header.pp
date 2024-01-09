@@ -9,7 +9,7 @@ package {'nginx':
 
 #Define file resource for notifying
 file {'default':
-  path   => '/etc/nginx/sites-available/defaukt',
+  path   => '/etc/nginx/sites-available/default',
   ensure => file,
 }
 
