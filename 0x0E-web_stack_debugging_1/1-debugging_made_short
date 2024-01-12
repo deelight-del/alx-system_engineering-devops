@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-#Bash script to debug a web stack
-
 #Update the apt package and install nginx
 sudo apt-get -y update
 sudo apt-get -y nginx
-
-#Start the nginx service
 sudo service nginx start
