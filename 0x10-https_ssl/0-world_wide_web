@@ -7,7 +7,7 @@ func () {
 		dig "lb-01.$1" +noall +answer | awk '{print "The subdomain lb-01 is a "$4" record and points to "$5""}'
 		dig "web-01.$1" +noall +answer | awk '{print "The subdomain web-01 is a "$4" record and points to "$5""}'
 		dig "web-02.$1" +noall +answer | awk '{print "The subdomain web-02 is a "$4" record and points to "$5""}'
-	elif [ "$2" ]; then
+	elif [ $2 ]; then
 		subdomain=$2
 		dig "$subdomain.$1" +noall +answer | awk -v subdom="$subdomain" '{print "The subdomain " subdom " is a "$4" record and points to "$5""}'
 	fi
