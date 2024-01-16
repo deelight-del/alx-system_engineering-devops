@@ -2,8 +2,10 @@
 #Bash script to debug a web stack
 
 #Update the apt package and install nginx
-sudo apt-get -y update
-sudo apt-get -y install nginx
+sudo rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-avaialable/default /etc/nginx/sites-enabled
+
+#sudo apt-get -y install nginx
 
 #Start the nginx service
-sudo service nginx restart
+sudo service nginx start
