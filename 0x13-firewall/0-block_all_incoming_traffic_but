@@ -1,4 +1,5 @@
 ufw allow 22/tcp
 ufw allow 443/tcp
 ufw allow 90/tcp
+ufw default deny incoming
 ufw enable
