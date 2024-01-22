@@ -1,0 +1,3 @@
+#/usr/bin/env bash
+# This file contains executing function as another user from root.
+su -c "whoami" "$1"
