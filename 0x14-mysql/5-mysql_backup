@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#This file contains the file to dump all the databases and archive it.
+
+#Dump all the databases
+mysqldump --user='root' --password="$1" --all-databases > backup.sql
+
+#Obtain date format
+date=$(date +%d-%m-%Y)
+
+#tar the given backup to gzip
+tar -czvf "$date".tar.gz backup.sql
