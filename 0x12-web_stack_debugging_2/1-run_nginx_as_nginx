@@ -1,0 +1,6 @@
+1 #!/usr/bin/bash
+#Script to run nginx as nginx
+chown nginx:nginx /etc/init.d/nginx /var/log/nginx
+chown -R nginx:nginx /etc/nginx
+su -c "chmod -R u=rwx,g=rwx /etc/nginx" nginx
+su -c "/etc/init.d/nginx start" nginx
