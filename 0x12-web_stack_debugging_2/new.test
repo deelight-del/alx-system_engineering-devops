@@ -1,0 +1,3 @@
+erver {
+	      listen 8080 default_server;
+		listen [::]:8080 default_server ipv6only=on;;;
