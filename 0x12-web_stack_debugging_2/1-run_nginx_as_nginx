@@ -1,4 +1,4 @@
-1 #!/usr/bin/bash
+#!/usr/bin/bash
 #Script to run nginx as nginx
 chown nginx:nginx /etc/init.d/nginx /var/log/nginx
 chown -R nginx:nginx /etc/nginx
