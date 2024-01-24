@@ -2,7 +2,7 @@
 #Script to run nginx as nginx
 chown nginx:nginx /etc/init.d/nginx /var/log/nginx
 chown -R nginx:nginx /etc/nginx
-su -c "chmod -R u=rwx,g=rwx /etc/nginx" nginx
+su -c "chmod -R u=rwx,g=rwx /etc/nginx /var/log/nginx" nginx
 new_string='listen 8080 default_server;'
 old_string='listen 80 default_server;'
 new_string1='listen \[::\]:8080 default_server ipv6only=on;'
