@@ -12,4 +12,4 @@ sed -i "s/$old_string1/$new_string1/" /etc/nginx/sites-available/default
 sed -i "s/listen \[::\]:8080 default_server ipv6only=on;;/listen \[::\]:8080 default_server ipv6only=on;/" /etc/nginx/sites-enabled/default
 pkill -9 apache2
 pkill -9 nginx
-sudo -u nginx /etc/init.d/nginx restart
+sudo -u nginx service nginx restart
