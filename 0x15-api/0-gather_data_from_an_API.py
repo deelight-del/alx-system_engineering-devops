@@ -26,7 +26,7 @@ if __name__ == "__main__":
                 total = len(todo_title_completed)
                 done = sum(todo_title_completed.values())
                 print(
-                    f"Employee {emp_name} is done with tasks({done}/{total})"
+                    f"Employee {emp_name} is done with tasks({done}/{total}):"
                 )
                 for title, completed in todo_title_completed.items():
                     if completed:
