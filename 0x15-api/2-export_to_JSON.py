@@ -5,9 +5,9 @@ as an integer"""
 
 
 if __name__ == "__main__":
+    import json
     import requests
     import sys
-    import csv
 
     emp_id = int(sys.argv[1])
     if isinstance(emp_id, int):
@@ -26,15 +26,15 @@ if __name__ == "__main__":
                 }
                 total = len(todo_title_completed)
                 done = sum(todo_title_completed.values())
-                user_ids = [str(user.get('id'))] * total
-                user_names = [emp_name] * total
-                zipped_info = zip(
-                        user_ids,
-                        user_names,
-                        todo_title_completed.values(),
-                        todo_title_completed.keys()
-                        )
-                with open(f'{user_ids[0]}.csv', 'w', newline='') as f:
-                    writer = csv.writer(f, dialect='unix')
-                    writer.writerows(list(zipped_info))
+                list_of_tasks_info = []
+                for title, completed in todo_title_completed.items():
+                    dict_task_info = {
+                            "task": title,
+                            "completed": completed,
+                            "username": emp_name
+                            }
+                    list_of_tasks_info.append(dict_task_info)
+                user_id_info_dict = {f"{emp_id}": list_of_tasks_info}
+                with open(f"{emp_id}.json", "w") as file:
+                    json.dump(user_id_info_dict, file)
                 break
