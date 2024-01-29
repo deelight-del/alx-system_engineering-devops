@@ -26,7 +26,7 @@ if __name__ == "__main__":
                 }
                 total = len(todo_title_completed)
                 done = sum(todo_title_completed.values())
-                user_ids = [user.get('id')] * total
+                user_ids = [str(user.get('id'))] * total
                 user_names = [emp_name] * total
                 zipped_info = zip(
                         user_ids,
@@ -34,7 +34,7 @@ if __name__ == "__main__":
                         todo_title_completed.values(),
                         todo_title_completed.keys()
                         )
-                with open(f'{user_ids[0]}.csv', 'w') as f:
+                with open(f'{user_ids[0]}.csv', 'w', encoding="utf-8") as f:
                     writer = csv.writer(f)
                     writer.writerows(list(zipped_info))
                 break
