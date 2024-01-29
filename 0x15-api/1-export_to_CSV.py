@@ -27,7 +27,7 @@ if __name__ == "__main__":
                 total = len(todo_title_completed)
                 done = sum(todo_title_completed.values())
                 user_ids = [str(user.get('id'))] * total
-                user_names = [emp_name] * total
+                user_names = [user.get('username')] * total
                 zipped_info = zip(
                         user_ids,
                         user_names,

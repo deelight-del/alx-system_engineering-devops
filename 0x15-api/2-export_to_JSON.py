@@ -25,7 +25,6 @@ if __name__ == "__main__":
                     todos_list if todo.get('userId') == emp_id
                 }
                 total = len(todo_title_completed)
-                done = sum(todo_title_completed.values())
                 list_of_tasks_info = []
                 for title, completed in todo_title_completed.items():
                     dict_task_info = {
@@ -35,6 +34,7 @@ if __name__ == "__main__":
                             }
                     list_of_tasks_info.append(dict_task_info)
                 user_id_info_dict = {f"{emp_id}": list_of_tasks_info}
+                print(len(user_id_info_dict[f"{emp_id}"]))
                 with open(f"{emp_id}.json", "w") as file:
                     json.dump(user_id_info_dict, file)
                 break
