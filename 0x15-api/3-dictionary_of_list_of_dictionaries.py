@@ -28,5 +28,5 @@ if __name__ == "__main__":
                         )
         emp_id_dict = {emp.get('id'): each_id_list}
         todo_all_dict.update(emp_id_dict)
-    with open('todo_all_employess.json', 'w') as outfile:
+    with open('todo_all_employees.json', 'w') as outfile:
         json.dump(todo_all_dict, outfile)
