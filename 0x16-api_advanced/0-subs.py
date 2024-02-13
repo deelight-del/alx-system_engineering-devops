@@ -18,6 +18,6 @@ def number_of_subscribers(subreddit):
             f"https://www.reddit.com/r/{subreddit}/about.json",
             allow_redirects=False
             )
-    if r.status_code != 200:
-        return 0
-    return r.json()["data"]["subscribers"]
+    #if r.status_code != 200:
+    #    return 0
+    return r.json().get("data", dict()).get("subscribers", 0)
