@@ -22,7 +22,6 @@ def top_ten(subreddit):
     r = requests.get(
             f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10",
             allow_redirects=False,
-            headers=headers
             )
     if r.status_code != 200:
         print("None")
