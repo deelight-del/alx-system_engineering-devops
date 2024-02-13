@@ -4,12 +4,13 @@ in a subreddit"""
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], params={}):
     """ Function to retrieve the top 10 hottest
     posts of a givne subreddit
 
     Parameters:
         subreddit - subreddit to check.
+        hot_list - list of hot titles.
 
     Return:
         PRINT titles of top 10 hottest posts, or None
@@ -20,12 +21,16 @@ def recurse(subreddit, hot_list=[]):
             Chrome/102.0.0.0 Safari/537.36'
             }
     r = requests.get(
-            f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10",
+            f"https://www.reddit.com/r/{subreddit}/hot.json",
             allow_redirects=False,
-            headers=headers
+            headers=headers,
+            params=params
             )
     if r.status_code != 200:
-        print("None")
         return
     for child in r.json()["data"]["children"][:-1]:
-        print(child["data"]["title"])
+        hot_list.append(child["data"]["title"])
+    if r.json()["data"]["after"] is None:
+        return hot_list
+    after_value = r.json()["data"]["after"]
+    return recurse(subreddit, hot_list, {"after": after_value})
