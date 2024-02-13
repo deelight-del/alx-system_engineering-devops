@@ -14,10 +14,12 @@ def number_of_subscribers(subreddit):
     Return:
         Number of subscribers or 0 if not found
     """
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
     r = requests.get(
             f"https://www.reddit.com/r/{subreddit}/about.json",
             allow_redirects=False
             )
-    #if r.status_code != 200:
-    #    return 0
-    return r.json().get("data", dict()).get("subscribers", 0)
+    if r.status_code != 200:
+        return 0
+    return (r.json()["data"]["subscribers"])
