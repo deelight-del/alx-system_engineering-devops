@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" Querying for the top 10 hottest posts
+""" Querying for all of the  hottest posts
 in a subreddit"""
 import requests
 
 
-def top_ten(subreddit):
+def recurse(subreddit, hot_list=[]):
     """ Function to retrieve the top 10 hottest
     posts of a givne subreddit
 

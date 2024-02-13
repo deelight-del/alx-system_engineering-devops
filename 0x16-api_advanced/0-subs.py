@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ Querying for the amount of users
 in a subredding"""
 import requests
